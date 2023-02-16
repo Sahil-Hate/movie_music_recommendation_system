@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Recommendation System</title>
+    <link rel="stylesheet" href="{% static 'button_style.css' %}">
+    
+</head>
+<body>
+    <div class="header">
+        <nav>
+            <div class="logo">
+                
+                <span>Mood Indicator</span>
+            </div>
+            <ul>
+                <li><a href="{% url 'index' %}">HOME</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                <img class="user" id="user-pic" width="50" height="50" src="{% static 'logo.png' %}">
+                <li><a href="#">Hi, {{user.username}}</a></li>
+                
+            </ul>
+        </nav>
+
+        <div class="content">
+            
+                <div class="output" >
+                    {% if emotion %}
+                    
+                    <h2 style="font-family:Bio-Rhyme; color: bisque;margin:40px;">You look {{emotion}}</h2>
+                    <h2 style="font-family:Bio-Rhyme; color: bisque;margin:40px;">Let's have fun...!</h1>
+                    <h2 style="font-family:Bio-Rhyme; color: bisque;margin:40px;font:40px">What would you prefer</h2>
+                    {% endif %}
+                </div>
+                <a href="{% url 'movie' emotion_id %}" class="btn">MOVIES</a>
+                <a href="{% url 'song' emotion_id %}" class="btn">SONGS</a>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
